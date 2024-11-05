@@ -1,110 +1,191 @@
-body {
-    font-family: 'Roboto', sans-serif;
+/* Reset beberapa styling default */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
+
+/* Styling untuk header */
 .header {
-    background-color: #ffcc00;
-    color: #000;
-    text-align: center;
-    padding: 10px;
-}
-.header button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-.hero {
-    position: relative;
+    background-color: #3a7ca5; /* Warna biru solid */
+    padding: 30px;
     text-align: center;
     color: white;
 }
+
+.header p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.header button {
+    background-color: #5c8e64;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.header button:hover {
+    background-color: #4a734f;
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    text-align: center;
+    background-color: #4e79a7; /* Biru yang sedikit lebih gelap */
+}
+
 .hero img {
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
+
 .hero .text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
 }
+
 .hero .text h1 {
-    font-size: 2.5em;
-    margin: 0;
+    font-size: 48px;
+    margin-bottom: 10px;
 }
-.hero .text button {
-    background-color: #00c853;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-.nav {
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    padding: 10px 0;
-}
-.nav a {
-    margin: 0 15px;
-    color: #000;
-    text-decoration: none;
-}
-.section {
-    padding: 50px 20px;
-    text-align: center;
-}
-.section h2 {
-    font-size: 2em;
+
+.hero .text p {
+    font-size: 24px;
     margin-bottom: 20px;
 }
+
+.hero .text button {
+    background-color: #5c8e64;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hero .text button:hover {
+    background-color: #4a734f;
+}
+
+/* Section tempat kunjungan */
+.section {
+    padding: 50px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+.section h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Grid untuk gambar */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Menampilkan 4 kolom */
     gap: 20px;
+    margin-top: 30px;
 }
-.grid img {
-    width: 100%;
-    height: auto;
+
+.grid a {
+    display: block;
+    position: relative; /* Untuk memungkinkan overlay di atas gambar */
+    overflow: hidden;
     border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.subscribe {
-    background: linear-gradient(to right, #ffcc00, #00c853);
-    padding: 50px 20px;
+
+/* Menambahkan efek zoom-in pada gambar saat hover */
+.grid a:hover img {
+    transform: scale(1.1); /* Zoom-in */
+}
+
+.grid a:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Overlay teks */
+.text-overlay {
+    position: absolute;
+    bottom: 0; /* Menempatkan teks di bagian bawah gambar */
+    left: 50%;
+    transform: translateX(-50%) translateY(100%); /* Menyembunyikan teks di bawah gambar */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
-    color: #fff;
-}
-.subscribe input {
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan hitam untuk teks */
     padding: 10px;
-    width: 300px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
+    width: 100%; /* Lebar teks sesuai dengan gambar */
+    transition: transform 0.5s ease-out; /* Efek animasi slide-up */
 }
-.subscribe button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
+
+/* Menampilkan teks saat gambar di-hover */
+.grid a:hover .text-overlay {
+    transform: translateX(-50%) translateY(0); /* Teks bergerak ke atas */
 }
+
+/* Footer styling */
 .footer {
-    background-color: #000;
-    color: #fff;
+    background-color: #333;
+    color: white;
+    padding: 30px;
     text-align: center;
-    padding: 20px;
 }
-.footer a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
+
+.footer p {
+    margin-bottom: 20px;
 }
+
 .footer select {
     padding: 10px;
-    margin-top: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.footer a:hover {
+    color: #5c8e64;
+}
+
+/* Additional responsive design for smaller screens */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Menampilkan 2 kolom */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr; /* Menampilkan 1 kolom */
+    }
+
+    .hero .text h1 {
+        font-size: 28px;
+    }
+
+    .hero .text p {
+        font-size: 18px;
+    }
 }
